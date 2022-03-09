@@ -1,6 +1,10 @@
 
 
+h2 {
+    position: relative;
+    left: 920px;
 
+}
 
 div.hist {
     position: absolute;
