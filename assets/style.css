@@ -1,17 +1,17 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.container{
+.currency-container {
     background-color: white;
     padding: 10px 24px;
     border-radius: 20px;
@@ -25,13 +25,13 @@ h2 {
     font-family: sans-serif;
 }
 
-.container .box {
+.currency-container .currency-box {
     width: 100%;
     display: flex;
 }
 
-.box div {
-    width: 100%
+.currency-box div {
+    width: 100%;
 }
 
 select {
@@ -61,7 +61,7 @@ input {
 }
 
 .btn {
-    width: 96%;
+    width: 98%;
     height: 40px;
     background: yellowgreen;
     color: black;
