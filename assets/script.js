@@ -5,6 +5,7 @@ const select = document.querySelectorAll(".currency");
 const btn = document.getElementById("btn");
 const num = document.getElementById("num");
 const ans = document.getElementById("ans");
+var storageArray = [];
 
 fetch("https://api.frankfurter.app/currencies")
   .then((data) => data.json())
@@ -19,7 +20,7 @@ function display(data) {
     select[1].innerHTML += `<option value="${entries[i][0]}">${entries[i][0]}</option>`;
   }
 }
-
+//CB - CONVERT BUTTON
 btn.addEventListener("click", () => {
   let currency1 = select[0].value;
   let currency2 = select[1].value;
@@ -28,7 +29,21 @@ btn.addEventListener("click", () => {
      if (currency1 != currency2) {
     convert(currency1, currency2, value);
   } 
+
+  //convertedChoices();
+  
 });
+
+
+
+
+//CB - 
+/*var convertedChoices = function(){
+    var convertedEl = document.querySelector("#history");
+    var convertedListEl = document.createElement("li");
+    convertedListEl.textContent = "Dem Boyz Testing";
+    convertedEl.appendChild(convertedListEl);
+};*/
 
 function convert(currency1, currency2, value) {
   const host = "api.frankfurter.app";
@@ -39,6 +54,9 @@ function convert(currency1, currency2, value) {
     .then((val) => {
       console.log(Object.values(val.rates)[0]);
       ans.value = Object.values(val.rates)[0];
+      var concatenateCurrencyHistory = (value + " " + currency1 + " converted to " + currency2 + " is " + (Object.values(val.rates)[0]))
+      storageArray.push(concatenateCurrencyHistory);
+      localStorage.setItem(storageArray, JSON.stringify(concatenateCurrencyHistory));
     });
 }
 
@@ -54,11 +72,10 @@ fetch(requestCurrentUrl)
     });*/
 
 //FETCH FOR THE HISTROICAL CURRENCY RATE
-fetch(requestHistoricUrl)
+/*fetch(requestHistoricUrl)
 .then(function(response){
     return response.json();
 })
     .then(function(data){
         console.log(data);
-    })
-
+    })*/
