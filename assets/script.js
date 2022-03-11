@@ -5,7 +5,7 @@ const select = document.querySelectorAll(".currency");
 const btn = document.getElementById("btn");
 const num = document.getElementById("num");
 const ans = document.getElementById("ans");
-var storageArray = [];
+var storageList = [];
 
 fetch("https://api.frankfurter.app/currencies")
   .then((data) => data.json())
@@ -28,22 +28,28 @@ btn.addEventListener("click", () => {
 
      if (currency1 != currency2) {
     convert(currency1, currency2, value);
+    
   } 
-
-  //convertedChoices();
-  
+  generateStorageHistory();
 });
 
+//GENERATE DYNMAIC ELEMENTS FROM LOCAL STORAGE
+//FIRST ON CLICK DOES NOT WORK DUE STORAGE COMING BEFORE THE ONCLICK AND GENERATING ONE BEHIND
+var generateStorageHistory = function(){
+  //var retrieveStorage = localStorage.getItem(storageList);
+ // var storageArray = JSON.parse(retrieveStorage);
+  //var text = "";
+  for(var i = 0; i < storageList.length; i++ ){
+   //var retrieveStorage = localStorage.getItem(storageList);
+    var storageApply = document.querySelector("#history");
+    var storageListEl = document.createElement("li");
+    storageListEl.textContent = storageList[i];
+    storageApply.appendChild(storageListEl);
+   // text += storageList[i] + "<i>";
+    //document.getElementById("history").innerHTML = text;
+  }
+};
 
-
-
-//CB - 
-/*var convertedChoices = function(){
-    var convertedEl = document.querySelector("#history");
-    var convertedListEl = document.createElement("li");
-    convertedListEl.textContent = "Dem Boyz Testing";
-    convertedEl.appendChild(convertedListEl);
-};*/
 
 function convert(currency1, currency2, value) {
   const host = "api.frankfurter.app";
@@ -54,9 +60,10 @@ function convert(currency1, currency2, value) {
     .then((val) => {
       console.log(Object.values(val.rates)[0]);
       ans.value = Object.values(val.rates)[0];
+      //LOCAL STORAGE BEGINS
       var concatenateCurrencyHistory = (value + " " + currency1 + " converted to " + currency2 + " is " + (Object.values(val.rates)[0]))
-      storageArray.push(concatenateCurrencyHistory);
-      localStorage.setItem(storageArray, JSON.stringify(concatenateCurrencyHistory));
+      storageList.push(concatenateCurrencyHistory);
+      localStorage.setItem(storageList, JSON.stringify(concatenateCurrencyHistory));
     });
 }
 
@@ -79,3 +86,18 @@ fetch(requestCurrentUrl)
     .then(function(data){
         console.log(data);
     })*/
+
+
+    /*for(var i = 0; i < storageList.length; i++){
+  var previousConverted = document.querySelector("#history");
+  var previousConvertedEL = document.createElement("li");
+  previousConvertedEL.textContent = storageList[i];
+  previousConvertedEL.appendChild(previousConverted);
+};*/
+//CB - 
+/*var convertedChoices = function(){
+    var convertedEl = document.querySelector("#history");
+    var convertedListEl = document.createElement("li");
+    convertedListEl.textContent = "Dem Boyz Testing";
+    convertedEl.appendChild(convertedListEl);
+};*/
