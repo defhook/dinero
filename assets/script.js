@@ -5,7 +5,6 @@ const select = document.querySelectorAll(".currency");
 const btn = document.getElementById("btn");
 const num = document.getElementById("num");
 const ans = document.getElementById("ans");
-var storageList = [];
 
 fetch("https://api.frankfurter.app/currencies")
   .then((data) => data.json())
@@ -20,34 +19,41 @@ function display(data) {
     select[1].innerHTML += `<option value="${entries[i][0]}">${entries[i][0]}</option>`;
   }
 }
-//CB - CONVERT BUTTON
+
 btn.addEventListener("click", () => {
   let currency1 = select[0].value;
   let currency2 = select[1].value;
   let value = num.value;
 
-     if (currency1 != currency2) {
-    convert(currency1, currency2, value);
-    
-  } 
-  generateStorageHistory();
+  if (currency1 != currency2) {
+      convert(currency1, currency2, value);
+  }
+
 });
 
-//GENERATE DYNMAIC ELEMENTS FROM LOCAL STORAGE
-//FIRST ON CLICK DOES NOT WORK DUE STORAGE COMING BEFORE THE ONCLICK AND GENERATING ONE BEHIND
-var generateStorageHistory = function(){
-  //var retrieveStorage = localStorage.getItem(storageList);
- // var storageArray = JSON.parse(retrieveStorage);
-  //var text = "";
-  for(var i = 0; i < storageList.length; i++ ){
-   //var retrieveStorage = localStorage.getItem(storageList);
-    var storageApply = document.querySelector("#history");
-    var storageListEl = document.createElement("li");
-    storageListEl.textContent = storageList[i];
-    storageApply.appendChild(storageListEl);
-   // text += storageList[i] + "<i>";
-    //document.getElementById("history").innerHTML = text;
+//GENERATE DYNAMIC HISTORY FROM STORAGE
+var generateStorageHistory = function () {
+
+  var storageApply = document.querySelector("#history");
+
+  //PREVENT DUPLICATES AFTER RELOAD (CLEAR TEXT)
+  storageApply.innerHTML = '';
+  
+  var retrieveStorage = localStorage.getItem('history');
+  var storageArray = JSON.parse(retrieveStorage);
+
+  // IF STORAGE ARRAY IS GREATER THAN 5 LIST THE MOST RECENT 5
+  if (storageArray.length > 5) {
+      storageArray = storageArray.slice(-5);
   }
+
+  for (var i = 0; i < storageArray.length; i++) {
+      storageApply = document.querySelector("#history");
+      var storageListEl = document.createElement("li");
+      storageListEl.textContent = storageArray[i];
+      storageApply.appendChild(storageListEl);
+  
+    }
 };
 
 
@@ -62,10 +68,23 @@ function convert(currency1, currency2, value) {
       ans.value = Object.values(val.rates)[0];
       //LOCAL STORAGE BEGINS
       var concatenateCurrencyHistory = (value + " " + currency1 + " converted to " + currency2 + " is " + (Object.values(val.rates)[0]))
-      storageList.push(concatenateCurrencyHistory);
-      localStorage.setItem(storageList, JSON.stringify(concatenateCurrencyHistory));
+
+      var currentStorage = localStorage.getItem('history');
+      
+      if (currentStorage !== null) {
+        currentStorage = JSON.parse(currentStorage);
+        currentStorage.push(concatenateCurrencyHistory);
+        localStorage.setItem('history', JSON.stringify(currentStorage));
+    } else {
+        currentStorage = [];
+        currentStorage.push(concatenateCurrencyHistory);
+        localStorage.setItem('history', JSON.stringify(currentStorage));
+    }
+    generateStorageHistory();
     });
 }
+
+generateStorageHistory();
 
 // amount can be converted straight from the requestCurrentUrl with parameter "amount=1200"
 
@@ -86,18 +105,3 @@ fetch(requestCurrentUrl)
     .then(function(data){
         console.log(data);
     })*/
-
-
-    /*for(var i = 0; i < storageList.length; i++){
-  var previousConverted = document.querySelector("#history");
-  var previousConvertedEL = document.createElement("li");
-  previousConvertedEL.textContent = storageList[i];
-  previousConvertedEL.appendChild(previousConverted);
-};*/
-//CB - 
-/*var convertedChoices = function(){
-    var convertedEl = document.querySelector("#history");
-    var convertedListEl = document.createElement("li");
-    convertedListEl.textContent = "Dem Boyz Testing";
-    convertedEl.appendChild(convertedListEl);
-};*/
