@@ -19,3 +19,11 @@ fetch(requestHistoricUrl)
     return response.json();
 })
     
+butn.addEventListener("click", () => {
+ fetch(requestHistoricUrl)
+ then(function (data){
+     console.log(result)
+
+ })
+
+});

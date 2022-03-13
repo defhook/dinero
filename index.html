@@ -12,17 +12,37 @@
     </header>
 
     <body>
-        <main>
+        <main>   
+            <p id="info"></p>
+            <p id="infotime"></p>
+
+            <div class="historicContainer">
+                <h2> Historic Currency conversion checker for the Euro</h2>
+            </div>
+
+            <!--PRBLM HERE-->
+
+            <form class="dataBox">
+                <input type="date" id="date">
+            </form>
+
+            <div class="curreny-box">
+                <div class="left-box">
+                    <select name="curreny" class="currency"></select>
+                </div>
+            </div>
+            <button class="btn" id="btn">Historical Data</button>
+
         </main>
-        <p id="info"></p>
+     
         
 
 <!--Im assuming the ASIDE was meant for the side bar of historical data.  I also used an h2 premetively to accomadate heirarchy.-->
         <aside>     
             <h2>Historical Data</h2> 
-                <div class="hist">
-                    <p id="info"> </p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio tenetur magni qui sint voluptates dolorem pariatur ullam autem corrupti quas numquam modi fugiat saepe vero recusandae in, dolore sunt cum! Lorem ipsum dolor sit amet consectetur adipisicing elit. At, nulla similique natus magni asperiores numquam nesciunt necessitatibus cumque corporis. Architecto ex a cumque animi dolores veritatis officia repellendus id magnam. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius veritatis sequi cupiditate, hic commodi nam quaerat. Exercitationem quaerat tempora natus labore laborum debitis, perspiciatis ullam repellendus iure quisquam nam commodi?Lorem ipsum dolor sit amet consectetur adipisicing elit. Non necessitatibus id culpa nihil sapiente in iure nisi numquam, pariatur quia aspernatur, aliquam dignissimos corrupti officia unde nesciunt! Illo, laudantium iste! Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto suscipit sit asperiores nulla quibusdam doloribus fugit praesentium sapiente aliquid mollitia. Blanditiis eaque, corrupti repudiandae laborum mollitia accusamus nam ad incidunt! Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias aliquid iusto nam dolorum fugiat quae, ullam quam atque magnam ipsa tempora quos vero laboriosam porro! Veniam perspiciatis voluptas alias ipsa? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia atque possimus doloribus distinctio ipsum optio magni officia animi eos maxime, qui ea, nemo, delectus dolore sit quam explicabo unde sed! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, ipsum? Fuga itaque tempore magnam cupiditate blanditiis, officia iste reprehenderit illo, repudiandae dignissimos porro aspernatur repellat, ipsum laudantium maiores commodi exercitationem! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam assumenda, fuga molestias, accusamus quaerat aspernatur, quos voluptatibus beatae dolores at sapiente error consequatur ipsa quo quia quam! Eum, molestias esse? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi vitae amet a adipisci quam voluptas laboriosam aliquid ut exercitationem quidem illum facere voluptatibus labore illo, fugit veritatis totam sed repudiandae! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium cum id quis blanditiis aperiam debitis laboriosam dolorem quos voluptates, voluptatem neque enim placeat alias vero voluptas itaque quod optio similique! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum ipsa, saepe excepturi sapiente magni repudiandae iure distinctio, ex reprehenderit totam labore! Deserunt ut dolorum nesciunt sed? Non natus laborum quis?
+                <div class="hist">My once scroll bar.
+                   
+                    
                 </div>
         </aside>
 
@@ -30,18 +50,33 @@
     </body>
 
     <script>
-        const getHistData = async () => {
-            fetch("https://api.exchangerate.host/2020-04-04%22")
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                document.getElementById("info").innerHTML = data.date + '<b>: 1 EUR = ' + data.rates.RUB + ' fish</b>'
-            });
-        }
+       const getHistData = async () => {
+                fetch("https://api.exchangerate.host/2020-04-04%22)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    document.getElementById("info").innerHTML = data.date + '<b>: 1 EUR = ' + data.rates.AED + ' AED</b>'
+                });
+            }
 
         getHistData();
 
     </script>
 
-    <footer></footer>
+    <script>
+    function unicorns() {
+    var dateInput = document.getElementById('date');
+
+    document.querySelector('form.dateBox').addEventListener('date', function (e) {
+        e.preventDefault();
+
+        console.log(nameInput.value);
+    });
+
+}
+
+unicorns();
+
+
+</script>
 </html>
