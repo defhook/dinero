@@ -29,12 +29,12 @@ h2 {
 }
 
 .currency-container .currency-box {
-    width: 100%;
+    width: 95%;
     display: flex;
 }
 
 .currency-box div {
-    width: 100%;
+    width: 95%;
 }
 
 select {
@@ -63,8 +63,8 @@ input {
     padding: 0 1em;
 }
 
-.btn button {
-   width: 98%;
+.btn {
+   width: 95%;
    height: 40px;
    background: yellowgreen;
    color: black;

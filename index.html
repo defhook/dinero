@@ -22,13 +22,16 @@
 
             <!--PRBLM HERE-->
 
-            <form class="dataBox">
+            <form class="dateBox">
                 <input type="date" id="date">
             </form>
 
             <div class="curreny-box">
-                <div class="left-box">
+                <div class="left_box">
                     <select name="curreny" class="currency"></select>
+                </div>
+                <div class="right_box">
+                    <select name="currency" class="currency"></select>
                 </div>
             </div>
             <button class="btn" id="btn">Historical Data</button>
@@ -38,6 +41,7 @@
         
 
 <!--Im assuming the ASIDE was meant for the side bar of historical data.  I also used an h2 premetively to accomadate heirarchy.-->
+<!--
         <aside>     
             <h2>Historical Data</h2> 
                 <div class="hist">My once scroll bar.
@@ -45,13 +49,17 @@
                     
                 </div>
         </aside>
+-->
+        
+   
 
-        <script src="./assets/script.js"></script>
-    </body>
+<script src="./assets/script.js">   </script>
 
-    <script>
+<!--
+
+   <script>
        const getHistData = async () => {
-                fetch("https://api.exchangerate.host/2020-04-04%22)
+                fetch("https://api.exchangerate.host/2020-04-04")
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);
@@ -60,23 +68,7 @@
             }
 
         getHistData();
-
-    </script>
-
-    <script>
-    function unicorns() {
-    var dateInput = document.getElementById('date');
-
-    document.querySelector('form.dateBox').addEventListener('date', function (e) {
-        e.preventDefault();
-
-        console.log(nameInput.value);
-    });
-
-}
-
-unicorns();
-
-
-</script>
+        
+    </script>-->
+    </body>
 </html>
