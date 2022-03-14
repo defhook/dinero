@@ -25,10 +25,37 @@ btn.addEventListener("click", () => {
   let currency2 = select[1].value;
   let value = num.value;
 
-     if (currency1 != currency2) {
-    convert(currency1, currency2, value);
-  } 
+  if (currency1 != currency2) {
+      convert(currency1, currency2, value);
+  }
+
 });
+
+//GENERATE DYNAMIC HISTORY FROM STORAGE
+var generateStorageHistory = function () {
+
+  var storageApply = document.querySelector("#history");
+
+  //PREVENT DUPLICATES AFTER RELOAD (CLEAR TEXT)
+  storageApply.innerHTML = '';
+  
+  var retrieveStorage = localStorage.getItem('history');
+  var storageArray = JSON.parse(retrieveStorage);
+
+  // IF STORAGE ARRAY IS GREATER THAN 5 LIST THE MOST RECENT 5
+  if (storageArray.length > 5) {
+      storageArray = storageArray.slice(-5);
+  }
+
+  for (var i = 0; i < storageArray.length; i++) {
+      storageApply = document.querySelector("#history");
+      var storageListEl = document.createElement("li");
+      storageListEl.textContent = storageArray[i];
+      storageApply.appendChild(storageListEl);
+  
+    }
+};
+
 
 function convert(currency1, currency2, value) {
   const host = "api.frankfurter.app";
@@ -39,26 +66,22 @@ function convert(currency1, currency2, value) {
     .then((val) => {
       console.log(Object.values(val.rates)[0]);
       ans.value = Object.values(val.rates)[0];
+      //LOCAL STORAGE BEGINS
+      var concatenateCurrencyHistory = (value + " " + currency1 + " converted to " + currency2 + " is " + (Object.values(val.rates)[0]))
+
+      var currentStorage = localStorage.getItem('history');
+      
+      if (currentStorage !== null) {
+        currentStorage = JSON.parse(currentStorage);
+        currentStorage.push(concatenateCurrencyHistory);
+        localStorage.setItem('history', JSON.stringify(currentStorage));
+    } else {
+        currentStorage = [];
+        currentStorage.push(concatenateCurrencyHistory);
+        localStorage.setItem('history', JSON.stringify(currentStorage));
+    }
+    generateStorageHistory();
     });
 }
 
-// amount can be converted straight from the requestCurrentUrl with parameter "amount=1200"
-
-/*//FETCH FOR THE CURRENT CURRENCY RATE
-fetch(requestCurrentUrl)
-.then(function(response){
-    return response.json();
-})
-    .then(function(data){
-        console.log(data);
-    });*/
-
-//FETCH FOR THE HISTROICAL CURRENCY RATE
-fetch(requestHistoricUrl)
-.then(function(response){
-    return response.json();
-})
-    .then(function(data){
-        console.log(data);
-    })
-
+generateStorageHistory();
