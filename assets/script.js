@@ -49,8 +49,9 @@ var generateStorageHistory = function () {
 
   for (var i = 0; i < storageArray.length; i++) {
       storageApply = document.querySelector("#history");
-      var storageListEl = document.createElement("li");
+      var storageListEl = document.createElement("p");
       storageListEl.textContent = storageArray[i];
+      storageListEl.className = "listHistory";
       storageApply.appendChild(storageListEl);
   
     }
