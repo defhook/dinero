@@ -5,7 +5,6 @@ const select = document.querySelectorAll(".currency");
 const btn = document.getElementById("btn");
 const num = document.getElementById("num");
 const ans = document.getElementById("ans");
-var requestURL = 'https://api.exchangerate.host/symbols';
 
 fetch("https://api.frankfurter.app/currencies")
   .then((data) => data.json())
@@ -18,6 +17,8 @@ function display(data) {
   for (var i = 0; i < entries.length; i++) {
     select[0].innerHTML += `<option value="${entries[i][0]}">${entries[i][0]}</option>`;
     select[1].innerHTML += `<option value="${entries[i][0]}">${entries[i][0]}</option>`;
+    select[2].innerHTML += `<option value="${entries[i][0]}">${entries[i][0]}</option>`;
+    select[3].innerHTML += `<option value="${entries[i][0]}">${entries[i][0]}</option>`;
   }
 }
 
