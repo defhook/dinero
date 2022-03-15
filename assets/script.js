@@ -5,6 +5,7 @@ const select = document.querySelectorAll(".currency");
 const btn = document.getElementById("btn");
 const num = document.getElementById("num");
 const ans = document.getElementById("ans");
+var requestURL = 'https://api.exchangerate.host/symbols';
 
 fetch("https://api.frankfurter.app/currencies")
   .then((data) => data.json())
@@ -43,14 +44,15 @@ var generateStorageHistory = function () {
   var storageArray = JSON.parse(retrieveStorage);
 
   // IF STORAGE ARRAY IS GREATER THAN 5 LIST THE MOST RECENT 5
-  if (storageArray.length > 5) {
-      storageArray = storageArray.slice(-5);
+  if (storageArray.length > 10) {
+      storageArray = storageArray.slice(-10);
   }
 
   for (var i = 0; i < storageArray.length; i++) {
       storageApply = document.querySelector("#history");
-      var storageListEl = document.createElement("li");
+      var storageListEl = document.createElement("p");
       storageListEl.textContent = storageArray[i];
+      storageListEl.className = "listHistory text-center";
       storageApply.appendChild(storageListEl);
   
     }
@@ -85,3 +87,16 @@ function convert(currency1, currency2, value) {
 }
 
 generateStorageHistory();
+
+function getHistData() {
+  const getHistData = async () => {
+      fetch("https://api.exchangerate.host/2020-04-04")
+      .then(response => response.json())
+      .then(data => {
+          console.log(data);
+          document.getElementById("info").innerHTML = data.date + '<b>: 1 EUR = ' + data.rates.AED + ' AED</b>'
+      });
+  }
+
+  getHistData();
+}

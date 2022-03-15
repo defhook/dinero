@@ -9,36 +9,71 @@
     <title>Currency Exchange</title>
 </head>
 
-<header>
 
-</header>
-
-<body>
-    <div class="currency-container">
-        <h2>Currency Converter</h2>
-        <div class="currency-box">
-            <div class="left_box">
-                <select name="currency" class="currency"></select>
-                <input type="number" name="" id="num">
+<body class="grid-x grid-margin-x">
+    <header id="main-header" class="cell shrink header medium-cell-block-container">
+        <h1 class="text-center">Currency</h1>
+    </header>
+    <!--CONVERSION  -->
+        <main class="grid-x grid-margin-x">
+            <div class="currency-container small-12 medium-6 cell">
+                <h2 class="text-center">Currency Converter</h2>
+                <div class="currency-box">
+                    <div class="left_box">
+                        <select name="currency" class="currency"></select>
+                        <input type="number" name="" id="num">
+                    </div>
+                    <div class="right_box">
+                        <select name="currency" class="currency"></select>
+                        <input type="text" name="" id="ans" disabled>
+                    </div>
+                </div>
+                <button class="btn" id="btn">Convert</button>
             </div>
-            <div class="right_box">
-                <select name="currency" class="currency"></select>
-                <input type="text" name="" id="ans" disabled>
+
+    <!--HISTORICAL DATA-->
+            <div class="small-12 medium-6 cell>
+                <p id="info"></p>
+                <p id="infotime"></p>
+
+                <div class="historicContainer">
+                    <h2 class="text-center"> Historic Currency Conversion</h2>
+                </div>
+
+                <!--PRBLM HERE-->
+
+                <form class="dateBox">
+                    <input type="date" id="date">
+                </form>
+
+                <div class="currency-box">
+                    <div class="left_box">
+                        <select name="currency" class="currency"></select>
+                    </div>
+                    <div class="right_box">
+                        <select name="currency" class="currency"></select>
+                    </div>
+                </div>
+                <button class="btn" id="btn">Historical Data</button>
             </div>
-        </div>
-        <button class="btn" id="btn">Convert</button>
-    </div>
 
-    <div id="history">
-        
-    </div>
+    <!--LOCAL STORAGE DATA-->
+            <div class ="medium-6 cell">
+            <h2 class="text-center">Previously Searched</h2>
+                <div id="history" class="small-12 medium-6 cell">
+                </div>
+            </div>
 
-    <aside>
-    </aside>
 
+    </main>
     <script src="./assets/script.js"></script>
+
+    <footer id="main-footer" class="cell shrink footer">
+        <h6 class="text-center">Made by: Alvin, Marcos, and Carl.</h2>
+    
+    </footer>
 </body>
 
-<footer></footer>
+
 
 </html>
