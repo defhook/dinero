@@ -31,8 +31,14 @@ body {
 .col {
     background-color: var(--dblue);
     padding: 1px;
-    width: 98%;
+    width: 98%; 
     
+}
+
+.DF {
+    color: var(--lblue);
+    font-family: 'Righteous', cursive;
+    right: 10px;
 }
 
 .tc {
@@ -46,6 +52,7 @@ body {
     padding: 15px 2px;
     border-radius: 20px;
     width: 490px;
+    
 }
 
 h1 {
@@ -61,6 +68,16 @@ h2 {
     margin-bottom: 0.5em;
 }
 
+.bar {
+    position: absolute;
+    right: 40px;
+    border: 8px solid black;
+    background-color: var(--lyellow);
+    width: 550px;
+    height: 720px;
+    overflow: scroll;
+    padding: 10px;
+}
 .currency-container .currency-box {
     width: 100%;
     display: flex;
@@ -75,7 +92,7 @@ select {
     height: 40px;
     font-size: 1.2em;
     cursor: pointer;
-    background: var(--yellow);
+    background: var(--red);
     outline: none;
     color: black;
     margin: 0.2em 0;
