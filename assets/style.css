@@ -31,6 +31,10 @@ h2 {
     display: flex;
 }
 
+.currency{
+    margin-bottom: 20px;
+}
+
 .currency-box div {
     width: 100%;
 }
