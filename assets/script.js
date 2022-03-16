@@ -1,6 +1,9 @@
 // var requestCurrentUrl = "https://api.exchangerate.host/convert?from=USD&to=EUR"; 
 var requestHistoricUrl = "https://api.exchangerate.host/2020-04-04";
 
+/*var requestFlagUrl =""*/
+
+
 const select = document.querySelectorAll(".currency");
 const btn = document.getElementById("btn");
 const num = document.getElementById("num");
@@ -11,14 +14,19 @@ fetch("https://api.frankfurter.app/currencies")
   .then((data) => {
     display(data);
   });
+/*
+  //Flag API
+  fetch('https://flagcdn.com/en/codes.json')
+  .then(response => response.json())
+  .then(data => console.log(data));
+*/
+
 
 function display(data) {
   const entries = Object.entries(data);
   for (var i = 0; i < entries.length; i++) {
     select[0].innerHTML += `<option value="${entries[i][0]}">${entries[i][0]}</option>`;
     select[1].innerHTML += `<option value="${entries[i][0]}">${entries[i][0]}</option>`;
-    select[2].innerHTML += `<option value="${entries[i][0]}">${entries[i][0]}</option>`;
-    select[3].innerHTML += `<option value="${entries[i][0]}">${entries[i][0]}</option>`;
   }
 }
 

@@ -2,30 +2,82 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Righteous', cursive;
+}
+
+:root {
+    --dblue: #365764;
+    --lyellow: #f2e0b0;
+    --red: #d43e49;
+    --lblue: #a9d7ca;
+    --yellow: #ecd289;
+}
+
+#main-header {
+    height: 3.5rem;
+    width:100%;
+    margin-bottom: 20px;
+    height: 100px;
+    background-color: var(--lyellow);
 }
 
 body {
-    height: 100vh;
+    height: 125vh;
     /*display: flex;*/
     align-items: center;
     justify-content: center;
 }
 
+.col {
+    background-color: var(--dblue);
+    padding: 1px;
+    width: 98%; 
+    
+}
+
+.DF {
+    color: var(--lblue);
+    font-family: 'Righteous', cursive;
+    right: 10px;
+}
+
+.tc {
+  color: var(--lblue);
+  font-family: 'Righteous', cursive;
+}
+
+
 .currency-container {
-    background-color: white;
-    padding: 10px 24px;
+    background-color: var(--dblue);
+    padding: 15px 2px;
     border-radius: 20px;
     width: 490px;
+    
+}
+
+h1 {
+    font-family: 'Lobster', cursive;
+    font-size:80px;
+    color: var(--red);
+
 }
 
 h2 {
     color: black;
-    margin-left: 72px;
+    margin-left: 10px;
     margin-bottom: 0.5em;
-    font-family: sans-serif;
 }
 
+.bar {
+    position: absolute;
+    right: 40px;
+    border: 8px solid black;
+    background-color: var(--lyellow);
+    width: 550px;
+    height: 720px;
+    overflow: scroll;
+    padding: 10px;
+}
 .currency-container .currency-box {
     width: 100%;
     display: flex;
@@ -40,11 +92,11 @@ h2 {
 }
 
 select {
-    width: 95%;
+    width: 100%;
     height: 40px;
     font-size: 1.2em;
     cursor: pointer;
-    background: yellowgreen;
+    background: var(--red);
     outline: none;
     color: black;
     margin: 0.2em 0;
@@ -60,15 +112,15 @@ input {
     margin: 0.2em 0;
     border-radius: 10px;
     border: none;
-    background: yellowgreen;
+    background: var(--yellow);
     outline: none;
     padding: 0 1em;
 }
 
 .btn {
-    width: 98%;
+    width: 100%;
     height: 40px;
-    background: yellowgreen;
+    background: var(--yellow);
     color: black;
     border-radius: 10px;
     border: none;
@@ -80,10 +132,10 @@ input {
 .listHistory{
     height: 40px;
     font-size: 1em;
-    margin: 0.2em 0;
+    margin: 0.2em 0 10px;
     border-radius: 10px;
     border: none;
-    background: yellowgreen;
+    background: var(--yellow);
     outline: none;
     padding: 0 1em;
     justify-content: center;
@@ -105,8 +157,17 @@ div.hist {
     padding: 10px;
 }
 
-#main-header, #main-footer{
+ #main-footer{
     height: 3.5rem;
-    background-color: yellowgreen;
+    background-color: var(--lyellow);
     width:100%;
+    margin-top: 20px;
+    color: #d43e49;
+    font-family: 'Righteous', cursive;
+}
+
+.ppl {
+    color: #d43e49;
+    font-family: 'Righteous', cursive;
+    font-size: 20px;
 }

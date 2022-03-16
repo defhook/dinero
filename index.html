@@ -5,19 +5,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Righteous&display=swap" rel="stylesheet">
+   
+
     <link rel="stylesheet" href="./assets/style.css" />
+
+
     <title>Currency Exchange</title>
 </head>
 
 
 <body class="grid-x grid-margin-x">
     <header id="main-header" class="cell shrink header medium-cell-block-container">
-        <h1 class="text-center">Currency</h1>
+        
+        <div class="Dinero">
+        <h1 class="text-center">Dinero</h1>
+    </div>
     </header>
     <!--CONVERSION  -->
-        <main class="grid-x grid-margin-x">
+        <main class="grid-x grid-margin-x col">
             <div class="currency-container small-12 medium-6 cell">
-                <h2 class="text-center">Currency Converter</h2>
+                <h2 class="text-center tc">Currency Converter</h2>
                 <div class="currency-box">
                     <div class="left_box">
                         <select name="currency" class="currency"></select>
@@ -31,35 +41,39 @@
                 <button class="btn" id="btn">Convert</button>
             </div>
 
-    <!--HISTORICAL DATA-->
-            <div class="small-12 medium-6 cell>
+    <!--Currency Key-->
+            <div class="small-12 medium-6 cell">
                 <p id="info"></p>
                 <p id="infotime"></p>
 
                 <div class="historicContainer">
-                    <h2 class="text-center"> Historic Currency Conversion</h2>
+                    <h2 class="text-center DF"> Currency Key</h2>
+                    <div class="bar">
+                        
+                    </div>
                 </div>
-
+                
+ </div>
                 <!--PRBLM HERE-->
-
-                <form class="dateBox">
+<!-- 
+               <form class="dateBox">
                     <input type="date" id="date">
-                </form>
+                </form> -->
 
-                <div class="currency-box">
-                    <div class="left_box">
+                <!-- <div class="currency-box">
+                    <div class="top_box">
                         <select name="currency" class="currency"></select>
                     </div>
-                    <div class="right_box">
+                    <div class="bottom_box">
                         <select name="currency" class="currency"></select>
                     </div>
-                </div>
-                <button class="btn" id="btn">Historical Data</button>
-            </div>
+                </div> -->
+              
+           
 
     <!--LOCAL STORAGE DATA-->
             <div class ="medium-6 cell">
-            <h2 class="text-center">Previously Searched</h2>
+            <h2 class="text-center col tc">Previously Searched</h2>
                 <div id="history" class="small-12 medium-6 cell">
                 </div>
             </div>
@@ -69,7 +83,7 @@
     <script src="./assets/script.js"></script>
 
     <footer id="main-footer" class="cell shrink footer">
-        <h6 class="text-center">Made by: Alvin, Marcos, and Carl.</h2>
+        <h6 class="text-center ppl">Made by: Alvin, Marcos, and Carl.</h2>
     
     </footer>
 </body>
