@@ -1,7 +1,10 @@
-// var requestCurrentUrl = "https://api.exchangerate.host/convert?from=USD&to=EUR"; 
+var requestCurrentUrl = "https://api.exchangerate.host/latest"; 
 var requestHistoricUrl = "https://api.exchangerate.host/2020-04-04";
+var flagUrl ="https://flagcdn.com/16x12/za.png"
 
 /*var requestFlagUrl =""*/
+
+
 
 
 const select = document.querySelectorAll(".currency");
@@ -14,9 +17,9 @@ fetch("https://api.frankfurter.app/currencies")
   .then((data) => {
     display(data);
   });
-/*
+
   //Flag API
-  fetch('https://flagcdn.com/en/codes.json')
+ /* fetch('https://flagcdn.com/en/codes.json')
   .then(response => response.json())
   .then(data => console.log(data));
 */
@@ -109,3 +112,27 @@ function getHistData() {
 
   getHistData();
 }
+var mainContainer = document.querySelector(".bar");
+
+fetch(requestCurrentUrl)
+.then(function(response){
+    return response.json();
+})
+    .then(function(data){
+        console.log(data.rates);
+        for (const key in data.rates) {
+          var listItem = document.createElement('li');
+          listItem.textContent = `${key}: ${data.rates[key]}`;
+          console.log(listItem);
+          mainContainer.appendChild(listItem);
+      }
+        /*for (var i = 0; i < data.length; i++) {
+          var listItem = document.createElement('li');
+          listItem.textContent = data[i].rates;
+          console.log(listItem);
+          mainContainer.appendChild(listItem);
+        }*/
+
+    });
+
+
