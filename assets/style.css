@@ -22,7 +22,7 @@
 }
 
 body {
-    height: 125vh;
+    height: 100vh;
     /*display: flex;*/
     align-items: center;
     justify-content: center;
@@ -170,4 +170,8 @@ div.hist {
     color: #d43e49;
     font-family: 'Righteous', cursive;
     font-size: 20px;
+}
+
+#previous-search{
+    height: 578px;
 }
