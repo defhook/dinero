@@ -1,11 +1,4 @@
-var requestCurrentUrl = "https://api.exchangerate.host/latest"; 
-var requestHistoricUrl = "https://api.exchangerate.host/2020-04-04";
-var flagUrl ="https://flagcdn.com/16x12/za.png"
-
-/*var requestFlagUrl =""*/
-
-
-
+var requestCurrentUrl = "https://api.exchangerate.host/latest?base=USD"; 
 
 const select = document.querySelectorAll(".currency");
 const btn = document.getElementById("btn");
@@ -17,13 +10,6 @@ fetch("https://api.frankfurter.app/currencies")
   .then((data) => {
     display(data);
   });
-
-  //Flag API
- /* fetch('https://flagcdn.com/en/codes.json')
-  .then(response => response.json())
-  .then(data => console.log(data));
-*/
-
 
 function display(data) {
   const entries = Object.entries(data);
@@ -126,13 +112,5 @@ fetch(requestCurrentUrl)
           console.log(listItem);
           mainContainer.appendChild(listItem);
       }
-        /*for (var i = 0; i < data.length; i++) {
-          var listItem = document.createElement('li');
-          listItem.textContent = data[i].rates;
-          console.log(listItem);
-          mainContainer.appendChild(listItem);
-        }*/
-
+      
     });
-
-
