@@ -4,6 +4,23 @@ const select = document.querySelectorAll(".currency");
 const btn = document.getElementById("btn");
 const num = document.getElementById("num");
 const ans = document.getElementById("ans");
+var mainContainer = document.querySelector(".bar");
+
+//API TO FETCH CURRENT LATEST RATES CONVERSION WITH BASE OF USD
+fetch(requestCurrentUrl)
+.then(function(response){
+    return response.json();
+})
+    .then(function(data){
+        console.log(data.rates);
+        for (const key in data.rates) {
+          var listItem = document.createElement('li');
+          listItem.textContent = `${key}: ${data.rates[key]}`;
+          console.log(listItem);
+          mainContainer.appendChild(listItem);
+      }
+      
+    });
 
 fetch("https://api.frankfurter.app/currencies")
   .then((data) => data.json())
@@ -98,19 +115,4 @@ function getHistData() {
 
   getHistData();
 }
-var mainContainer = document.querySelector(".bar");
 
-fetch(requestCurrentUrl)
-.then(function(response){
-    return response.json();
-})
-    .then(function(data){
-        console.log(data.rates);
-        for (const key in data.rates) {
-          var listItem = document.createElement('li');
-          listItem.textContent = `${key}: ${data.rates[key]}`;
-          console.log(listItem);
-          mainContainer.appendChild(listItem);
-      }
-      
-    });
