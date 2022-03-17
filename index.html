@@ -8,11 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Righteous&display=swap" rel="stylesheet">
-   
-
     <link rel="stylesheet" href="./assets/style.css" />
-
-
     <title>Currency Exchange</title>
 </head>
 
@@ -26,70 +22,56 @@
     </header>
     <!--CONVERSION  -->
         <main class="grid-x grid-margin-x col">
+            <!--CONTAINER THAT HOLDS EVERYTHING-->
             <div class="currency-container small-12 medium-6 cell">
-                <h2 class="text-center tc">Currency Converter</h2>
-                <div class="currency-box">
-                    <div class="left_box">
-                        <select name="currency" class="currency"></select>
-                        <input type="number" name="" id="num">
+                <!--CONTAINER THAT HOLDS CURRENCY CONVERTER AND PREVIOUSLY SEARCHED-->
+                <div class="small-12 medium-6 cell"">
+                    <!--CONTAINER FOR CURRENCY CONVERTER-->
+                    <div class="small-12 medium-12 cell"">
+                        <h2 class="text-center tc">Currency Converter</h2>
+                        <!--CURRENCY CONVERTER API-->
+                        <div class="currency-box">
+                            <div class="left_box">
+                                <select name="currency" class="currency"></select>
+                                <input type="number" name="" id="num">
+                            </div>
+                            <div class="right_box">
+                                <select name="currency" class="currency"></select>
+                                <input type="text" name="" id="ans" disabled>
+                            </div>
+                        </div>
+                        <button class="btn" id="btn">Convert</button>
                     </div>
-                    <div class="right_box">
-                        <select name="currency" class="currency"></select>
-                        <input type="text" name="" id="ans" disabled>
+                        <!--CONTAINER FOR PREVIOUSLY SEARCHED-->
+                    <div class ="small-12 medium-6 cell" id="previous-search">
+                        <h2 class="text-center col tc">Previously Searched</h2>
+                        <!--LOCALSTORAGE GENERATE -->
+                        <div id="history"">
+                        </div>
                     </div>
                 </div>
-                <button class="btn" id="btn">Convert</button>
             </div>
 
-    <!--Currency Key-->
+    <!--USD Current Exchange Rate-->
             <div class="small-12 medium-6 cell">
                 <p id="info"></p>
                 <p id="infotime"></p>
-
                 <div class="historicContainer">
-                    <h2 class="text-center DF"> Currency Key</h2>
+                    <h2 class="text-center DF"> USD Current Exchange Rate</h2>
+                    <!--USD EXCHANGE RATE API GENERATE LI-->
                     <div class="bar">
                         
                     </div>
                 </div>
-                
- </div>
-                <!--PRBLM HERE-->
-<!-- 
-               <form class="dateBox">
-                    <input type="date" id="date">
-                </form> -->
-
-                <!-- <div class="currency-box">
-                    <div class="top_box">
-                        <select name="currency" class="currency"></select>
-                    </div>
-                    <div class="bottom_box">
-                        <select name="currency" class="currency"></select>
-                    </div>
-                </div> -->
-              
-           
-
-    <!--LOCAL STORAGE DATA-->
-            <div class ="medium-6 cell" id="previous-search">
-            <h2 class="text-center col tc">Previously Searched</h2>
-                <div id="history" class="small-12 medium-6 cell">
-                </div>
             </div>
-
 
     </main>
     <script src="./assets/script.js"></script>
 
     <footer id="main-footer" class="cell shrink footer">
         <h6 class="text-center ppl">Made by: Alvin, Marcos, and Carl.</h2>
-    
     </footer>
 
     
 </body>
-
-
-
 </html>

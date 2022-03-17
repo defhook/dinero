@@ -1,26 +1,32 @@
-// var requestCurrentUrl = "https://api.exchangerate.host/convert?from=USD&to=EUR"; 
-var requestHistoricUrl = "https://api.exchangerate.host/2020-04-04";
-
-/*var requestFlagUrl =""*/
-
+var requestCurrentUrl = "https://api.exchangerate.host/latest?base=USD"; 
 
 const select = document.querySelectorAll(".currency");
 const btn = document.getElementById("btn");
 const num = document.getElementById("num");
 const ans = document.getElementById("ans");
+var mainContainer = document.querySelector(".bar");
+
+//API TO FETCH CURRENT LATEST RATES CONVERSION WITH BASE OF USD
+fetch(requestCurrentUrl)
+.then(function(response){
+    return response.json();
+})
+    .then(function(data){
+        console.log(data.rates);
+        for (const key in data.rates) {
+          var listItem = document.createElement('li');
+          listItem.textContent = `${key}: ${data.rates[key]}`;
+          console.log(listItem);
+          mainContainer.appendChild(listItem);
+      }
+      
+    });
 
 fetch("https://api.frankfurter.app/currencies")
   .then((data) => data.json())
   .then((data) => {
     display(data);
   });
-/*
-  //Flag API
-  fetch('https://flagcdn.com/en/codes.json')
-  .then(response => response.json())
-  .then(data => console.log(data));
-*/
-
 
 function display(data) {
   const entries = Object.entries(data);
