@@ -103,15 +103,4 @@ function convert(currency1, currency2, value) {
 
 generateStorageHistory();
 
-function getHistData() {
-  const getHistData = async () => {
-      fetch("https://api.exchangerate.host/2020-04-04")
-      .then(response => response.json())
-      .then(data => {
-          console.log(data);
-          document.getElementById("info").innerHTML = data.date + '<b>: 1 EUR = ' + data.rates.AED + ' AED</b>'
-      });
-  }
 
-  getHistData();
-}
