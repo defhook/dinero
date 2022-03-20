@@ -1,6 +1,5 @@
 # CURRENCY EXCHANGE RATE PROJECT 1
 <BR>
-<br>
 
 ## Purpose
 The goal of this application is to provide the user with an easy exchange rate outlook. What does that mean? Anyone looking to further their financial gains will love this app for the following features-
