@@ -13,7 +13,7 @@ The goal of this application is to provide the user with an easy exchange rate o
 * JavaScript
 
 ## Website
-https://defhook.github.io/work-day/
+https://defhook.github.io/dinero/
 
 ## Contribution
 Made by Alvin Badillo, Carl Bush and Marcos Castillo
