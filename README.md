@@ -13,5 +13,4 @@ The goal of this application is to provide the user with an easy exchange rate o
 3-The user is able to log and save the projected exchange rate to compare currencies and choose what suits them most.
 <br>
 <br>
-This application will use
-
+![alt text](assets/Dinero-SS.png)
